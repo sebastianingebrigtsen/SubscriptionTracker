@@ -1,12 +1,118 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Tracker</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Subscription Tracker</title>
   </head>
-  <body>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-white shadow-md">
+      <div class="container mx-auto p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-indigo-600">Subscription Tracker</div>
+        <nav class="space-x-6">
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Home</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Features</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Pricing</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-indigo-600 text-white py-20">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-6">Track All Your Subscriptions Effortlessly</h1>
+        <p class="text-xl mb-8">Manage your subscriptions and never miss a payment again with our easy-to-use platform.</p>
+        <a href="#" class="bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-12">Why Choose Our Tracker?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <!-- Feature 1 -->
+          <div class="p-6 bg-white rounded-lg shadow-lg">
+            <img src="https://via.placeholder.com/150" alt="Feature 1" class="mx-auto mb-4" />
+            <h3 class="text-xl font-bold mb-2">All Subscriptions in One Place</h3>
+            <p>Consolidate all your subscriptions and easily monitor them in a single dashboard.</p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="p-6 bg-white rounded-lg shadow-lg">
+            <img src="https://via.placeholder.com/150" alt="Feature 2" class="mx-auto mb-4" />
+            <h3 class="text-xl font-bold mb-2">Custom Alerts</h3>
+            <p>Set custom alerts and reminders so you never miss a payment deadline.</p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="p-6 bg-white rounded-lg shadow-lg">
+            <img src="https://via.placeholder.com/150" alt="Feature 3" class="mx-auto mb-4" />
+            <h3 class="text-xl font-bold mb-2">User-Friendly Interface</h3>
+            <p>Our platform is designed to be intuitive and easy to use, no matter your tech skills.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-12">Choose Your Plan</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <!-- Basic Plan -->
+          <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Basic</h3>
+            <p class="text-gray-600 mb-6">Perfect for individuals</p>
+            <p class="text-4xl font-bold mb-4">$5 <span class="text-lg">/mo</span></p>
+            <ul class="mb-6">
+              <li class="mb-2">Up to 10 subscriptions</li>
+              <li class="mb-2">Email reminders</li>
+              <li>Basic analytics</li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition">Choose Plan</a>
+          </div>
+          <!-- Pro Plan -->
+          <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Pro</h3>
+            <p class="text-gray-600 mb-6">For power users</p>
+            <p class="text-4xl font-bold mb-4">$15 <span class="text-lg">/mo</span></p>
+            <ul class="mb-6">
+              <li class="mb-2">Unlimited subscriptions</li>
+              <li class="mb-2">SMS reminders</li>
+              <li>Advanced analytics</li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition">Choose Plan</a>
+          </div>
+          <!-- Enterprise Plan -->
+          <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Enterprise</h3>
+            <p class="text-gray-600 mb-6">For businesses</p>
+            <p class="text-4xl font-bold mb-4">Custom</p>
+            <ul class="mb-6">
+              <li class="mb-2">Custom integrations</li>
+              <li class="mb-2">Priority support</li>
+              <li>Advanced reporting</li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Subscription Tracker. All rights reserved.</p>
+        <nav class="space-x-4 mt-4">
+          <a href="#" class="hover:underline">Privacy Policy</a>
+          <a href="#" class="hover:underline">Terms of Service</a>
+        </nav>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
