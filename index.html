@@ -4,115 +4,187 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subscription Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="bg-gray-100 text-gray-800">
+  <body class="bg-gray-100 text-gray-900">
     <!-- Navbar -->
-    <header class="bg-white shadow-md">
-      <div class="container mx-auto p-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-indigo-600">Subscription Tracker</div>
-        <nav class="space-x-6">
-          <a href="#" class="text-gray-600 hover:text-indigo-600">Home</a>
-          <a href="#" class="text-gray-600 hover:text-indigo-600">Features</a>
-          <a href="#" class="text-gray-600 hover:text-indigo-600">Pricing</a>
-          <a href="#" class="text-gray-600 hover:text-indigo-600">Contact</a>
-        </nav>
+    <header class="bg-gray-200 p-4">
+      <div class="container mx-auto flex justify-between">
+        <h1 class="text-xl font-bold">Subscription Tracker</h1>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-indigo-600 text-white py-20">
-      <div class="container mx-auto text-center">
-        <h1 class="text-5xl font-bold mb-6">Track All Your Subscriptions Effortlessly</h1>
-        <p class="text-xl mb-8">Manage your subscriptions and never miss a payment again with our easy-to-use platform.</p>
-        <a href="#" class="bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition">Get Started</a>
-      </div>
-    </section>
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 space-y-6">
+      <!-- Add New Subscription Form -->
+      <section class="mb-6">
+        <h2 class="text-lg font-semibold mb-2">Add New Subscription</h2>
+        <div class="bg-white p-4 rounded shadow-md">
+          <form id="subscription-form">
+            <!-- Image, Currency, and Amount -->
+            <div class="flex items-center space-x-4 mb-4">
+              <!-- Image Input -->
+              <div>
+                <label for="service-image" class="block text-sm mb-1">Image</label>
+                <input type="file" id="service-image" class="block p-2 border border-gray-300 rounded" />
+              </div>
 
-    <!-- Features Section -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-12">Why Choose Our Tracker?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <!-- Feature 1 -->
-          <div class="p-6 bg-white rounded-lg shadow-lg">
-            <img src="https://via.placeholder.com/150" alt="Feature 1" class="mx-auto mb-4" />
-            <h3 class="text-xl font-bold mb-2">All Subscriptions in One Place</h3>
-            <p>Consolidate all your subscriptions and easily monitor them in a single dashboard.</p>
+              <!-- Currency Selection -->
+              <div>
+                <label for="currency" class="block text-sm mb-1">Currency</label>
+                <select id="currency" class="block w-full p-2 border border-gray-300 rounded">
+                  <option value="usd">USD</option>
+                  <option value="eur">EUR</option>
+                  <option value="kr">NOK</option>
+                </select>
+              </div>
+
+              <!-- Amount Input -->
+              <div>
+                <label for="amount" class="block text-sm mb-1">Amount</label>
+                <input type="number" id="amount" class="block w-full p-2 border border-gray-300 rounded" placeholder="Enter amount" />
+              </div>
+            </div>
+
+            <!-- Service Name -->
+            <div class="mb-4">
+              <label for="service-name" class="block text-sm mb-1">Service Name</label>
+              <input type="text" id="service-name" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter service name" />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-4">
+              <label for="description" class="block text-sm mb-1">Description</label>
+              <textarea id="description" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter description"></textarea>
+            </div>
+
+            <!-- Categories -->
+            <div class="mb-4">
+              <label for="categories" class="block text-sm mb-1">Categories</label>
+              <input type="text" id="categories" class="w-full p-2 border border-gray-300 rounded" placeholder="e.g., Streaming, Software, Gym" />
+            </div>
+
+            <!-- Toggle Options -->
+            <div class="mb-4">
+              <button type="button" id="toggle-options" class="bg-gray-300 text-black px-4 py-2 rounded flex items-center">
+                <span id="toggle-text">More Options</span>
+                <svg
+                  id="toggle-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 ml-2 transition-transform transform rotate-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Options Section -->
+            <div id="options" class="hidden transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
+              <!-- First Bill Date -->
+              <div class="mb-4">
+                <label for="first-bill" class="block text-sm mb-1">First Bill Date</label>
+                <input type="date" id="first-bill" class="w-full p-2 border border-gray-300 rounded" />
+              </div>
+
+              <!-- Payment Cycle -->
+              <div class="mb-4">
+                <label for="cycle" class="block text-sm mb-1">Payment Cycle</label>
+                <select id="cycle" class="block w-full p-2 border border-gray-300 rounded">
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
+
+              <!-- Duration -->
+              <div class="mb-4">
+                <label for="duration" class="block text-sm mb-1">Duration (months)</label>
+                <input type="number" id="duration" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter duration in months" />
+              </div>
+
+              <!-- Remind Me -->
+              <div class="mb-4">
+                <label for="remind-me" class="block text-sm mb-1">Remind Me</label>
+                <input type="checkbox" id="remind-me" class="mr-2" />
+                <label for="remind-me">Yes, send me reminders</label>
+              </div>
+
+              <!-- Active Status -->
+              <div class="mb-4">
+                <label for="status" class="block text-sm mb-1">Status</label>
+                <select id="status" class="block w-full p-2 border border-gray-300 rounded">
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Subscription</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Subscription List -->
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Your Subscriptions</h2>
+
+        <!-- Subscription Item -->
+        <div class="flex items-center justify-between p-4 bg-yellow-500 rounded">
+          <div class="flex items-center space-x-4">
+            <!-- Icon -->
+            <div class="bg-yellow-700 p-3 rounded-full">
+              <img width="50" height="50" src="https://img.icons8.com/ios/50/phone--v1.png" alt="phone--v1" />
+            </div>
+            <!-- Service Name and Duration -->
+            <div>
+              <h2 class="text-lg font-bold">Telenor</h2>
+              <p class="text-sm">3 weeks</p>
+            </div>
           </div>
-          <!-- Feature 2 -->
-          <div class="p-6 bg-white rounded-lg shadow-lg">
-            <img src="https://via.placeholder.com/150" alt="Feature 2" class="mx-auto mb-4" />
-            <h3 class="text-xl font-bold mb-2">Custom Alerts</h3>
-            <p>Set custom alerts and reminders so you never miss a payment deadline.</p>
+          <!-- Price -->
+          <div class="text-lg font-bold">kr198,00</div>
+        </div>
+
+        <!-- Subscription Item -->
+        <div class="flex items-center justify-between p-4 bg-orange-500 rounded">
+          <div class="flex items-center space-x-4">
+            <!-- Icon -->
+            <div class="bg-orange-700 p-3 rounded-full">
+              <img width="50" height="50" src="https://img.icons8.com/ios/50/present.png" alt="present" />
+            </div>
+            <!-- Service Name and Duration -->
+            <div>
+              <h2 class="text-lg font-bold">Sleep Cycle</h2>
+              <p class="text-sm">11 months</p>
+            </div>
           </div>
-          <!-- Feature 3 -->
-          <div class="p-6 bg-white rounded-lg shadow-lg">
-            <img src="https://via.placeholder.com/150" alt="Feature 3" class="mx-auto mb-4" />
-            <h3 class="text-xl font-bold mb-2">User-Friendly Interface</h3>
-            <p>Our platform is designed to be intuitive and easy to use, no matter your tech skills.</p>
+          <!-- Price -->
+          <div class="text-lg font-bold">kr315,00</div>
+        </div>
+
+        <!-- More Subscription Items here... -->
+
+        <!-- Average Expenses -->
+        <div class="bg-gray-400 p-4 rounded mt-6">
+          <div class="flex justify-between items-center">
+            <p class="text-sm">Average Expenses</p>
+            <p class="text-xl font-bold">kr961,33</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-12">Choose Your Plan</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <!-- Basic Plan -->
-          <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
-            <h3 class="text-xl font-bold mb-4">Basic</h3>
-            <p class="text-gray-600 mb-6">Perfect for individuals</p>
-            <p class="text-4xl font-bold mb-4">$5 <span class="text-lg">/mo</span></p>
-            <ul class="mb-6">
-              <li class="mb-2">Up to 10 subscriptions</li>
-              <li class="mb-2">Email reminders</li>
-              <li>Basic analytics</li>
-            </ul>
-            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition">Choose Plan</a>
-          </div>
-          <!-- Pro Plan -->
-          <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
-            <h3 class="text-xl font-bold mb-4">Pro</h3>
-            <p class="text-gray-600 mb-6">For power users</p>
-            <p class="text-4xl font-bold mb-4">$15 <span class="text-lg">/mo</span></p>
-            <ul class="mb-6">
-              <li class="mb-2">Unlimited subscriptions</li>
-              <li class="mb-2">SMS reminders</li>
-              <li>Advanced analytics</li>
-            </ul>
-            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition">Choose Plan</a>
-          </div>
-          <!-- Enterprise Plan -->
-          <div class="p-6 bg-gray-50 rounded-lg shadow-lg">
-            <h3 class="text-xl font-bold mb-4">Enterprise</h3>
-            <p class="text-gray-600 mb-6">For businesses</p>
-            <p class="text-4xl font-bold mb-4">Custom</p>
-            <ul class="mb-6">
-              <li class="mb-2">Custom integrations</li>
-              <li class="mb-2">Priority support</li>
-              <li>Advanced reporting</li>
-            </ul>
-            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition">Contact Us</a>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-      <div class="container mx-auto text-center">
-        <p>&copy; 2024 Subscription Tracker. All rights reserved.</p>
-        <nav class="space-x-4 mt-4">
-          <a href="#" class="hover:underline">Privacy Policy</a>
-          <a href="#" class="hover:underline">Terms of Service</a>
-        </nav>
-      </div>
+    <footer class="bg-gray-200 p-4 text-center mt-auto">
+      <p>&copy; 2024 Subscription Tracker</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
